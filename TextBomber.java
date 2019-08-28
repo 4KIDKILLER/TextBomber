@@ -16,10 +16,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * 信息炸弹2.1
- * 
- * @author 14508 定义发送的文件内多条消息以英文( , ) 结尾 在最后添加stop则运行到此处停止程序 例如:
- *         你好,吃饭了吗,在干嘛,stop
+ * @author 14508 
+ *
+ * TextBomber 2.0
  */
 public class TextBomber {
 	public static void main(String[] args) throws AWTException, IOException {
@@ -97,7 +96,9 @@ class Task extends TimerTask {
 			TextBomber read = new TextBomber();
 			String sentence = null;
 			try {
-				String contentPath = "C:\\Users\\14508\\Desktop\\TextBomber\\content.txt";
+				//获取content.txt位置
+				String contentPath = System.getProperty("user.dir")+"\\content.txt";
+				// String contentPath = "C:\\Users\\14508\\Desktop\\TextBomber\\content.txt";
 				sentence = read.readFile(contentPath);
 			} catch (IOException e1) {
 				e1.printStackTrace();
