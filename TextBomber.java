@@ -73,7 +73,6 @@ public class TextBomber {
 	}
 }
 /**
- * @author 14508
  * 倒计时后开始执行
  */
 class Task extends TimerTask {
