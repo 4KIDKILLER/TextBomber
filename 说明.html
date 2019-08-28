@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>信息炸弹说明</title>
+    <style>
+        body{
+            background: #1E1E1E;
+            color:#D4D4D4;
+        }
+        .container{
+            width: 1200px;
+            margin:0 auto;
+        }
+        .use{
+            float: left;
+            width:100%;
+            text-align: center;
+            padding:10px;
+        }
+        .warning {
+            float: left;
+            width:100%;
+            text-align: center;
+            color: red;
+            padding:10px;
+        }
+        .name{
+            border-left: #14517A 5px solid;
+            float: left;
+            width:100%;
+            background: #282828;
+            padding-top:5px;
+            padding-bottom:5px;
+            padding-left: 10px;
+        }
+        .discription{
+            float: left;
+            width:100%;
+            background: #161616;
+            padding:20px;
+        }
+        .desc{
+            float: left;
+            width:100%; 
+            margin-bottom:20px;
+            margin-top:5px;
+            font-size:14px;
+        }
+        .step{
+            float: left;
+            width:100%;
+            padding-top:20px; 
+        }
+        .bottom{
+            float: left;
+            width:100%;
+            padding-top:20px
+        }
+        b{
+            color:red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="warning"><h3>！！！没java环境的电脑没用！！！</h3></div>
+        <div class="name">信息炸弹3.0</div>
+        <div class="use"><h3>使用方法</h3></div>
+        <div class="step">
+                1. 定义发送内容到( content.txt )文件内，多条消息以英文( , )分割<br /><br />
+                2. content.txt文件中，第一条消息必须为<b>正整数</b>，用于定义发送次数，此参数不会发送出去<br /><br />
+                3. 例如:<br /><br />
+        </div>
+        <div class="discription">
+            <b>3</b>,你好,吃饭了吗,在干嘛</b>
+        </div>
+        <div class="desc">
+        *<b>3</b>为发送次数,会将content.txt里的内容发送两遍。若此参数填得太大，程序会运行很长时间，可按<b>CTRL+C</b>终止程序
+        </div>
+        4. 使用命令窗口运行
+        <br /><br />
+        <div class="discription">
+            java TextBomber
+        </div>
+        <div class="bottom">
+            程序将于5秒后开始执行，在这5秒间快速切换到qq或微信等其他聊天软件聊天窗口， 程序将会快速将( content.txt )里面的内容发送出去。
+        </div>
+    </div>
+</body>
+
+</html>
