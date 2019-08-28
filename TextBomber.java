@@ -16,10 +16,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * 信息炸弹2.1
+ * 信息炸弹3.0
  * 
- * @author 14508 定义发送的文件内多条消息以英文( , ) 结尾 在最后添加stop则运行到此处停止程序 例如:
- *         你好,吃饭了吗,在干嘛,stop
+ * @author 14508 
+ * 内容中第一条必须为正整数，定义发送的文件内多条消息以英文( , ) 
+ * 例如:
+ *   3,你好,吃饭了吗,在干嘛
  */
 public class TextBomber {
 	public static void main(String[] args) throws AWTException, IOException {
@@ -27,7 +29,7 @@ public class TextBomber {
 		Timer timer = new Timer();
 		timer.schedule(new Task(timer), 1000, 1000);
 	}
-	/*
+	/**
 	 * 读取文件内容
 	 * 
 	 * @param string path 文件地址
