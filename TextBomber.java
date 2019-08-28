@@ -99,6 +99,7 @@ class Task extends TimerTask {
 			TextBomber read = new TextBomber();
 			String sentence = null;
 			try {
+				//获取content.txt文件位置
 				String contentPath = System.getProperty("user.dir")+"\\content.txt";
 				sentence = read.readFile(contentPath);
 			} catch (IOException e1) {
