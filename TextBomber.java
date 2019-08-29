@@ -96,7 +96,8 @@ class Task extends TimerTask {
 			TextBomber read = new TextBomber();
 			String sentence = null;
 			try {
-				String contentPath = "C:\\Users\\14508\\Desktop\\TextBomber\\content.txt";
+				String contentPath = System.getProperty("user.dir")+"\\content.txt";
+				// String contentPath = "C:\\Users\\14508\\Desktop\\TextBomber\\content.txt";
 				sentence = read.readFile(contentPath);
 			} catch (IOException e1) {
 				e1.printStackTrace();
