@@ -96,7 +96,9 @@ class Task extends TimerTask {
 			TextBomber read = new TextBomber();
 			String sentence = null;
 			try {
-				String contentPath = "C:\\Users\\14508\\Desktop\\TextBomber\\content.txt";
+				//读取content.txt内容
+				String contentPath = System.getProperty("user.dir")+"\\content.txt";
+				// String contentPath = "C:\\Users\\14508\\Desktop\\TextBomber\\content.txt";
 				sentence = read.readFile(contentPath);
 			} catch (IOException e1) {
 				e1.printStackTrace();
@@ -116,7 +118,6 @@ class Task extends TimerTask {
 				numberOf = (int) Math.abs(Integer.parseInt(authors[0]));//执行次数
                 if(numberOf == 0){
                     System.out.println("执行次数参数错误-10001");
-                    System.out.println("已完成");
                     this.timer.cancel();
                 }
 			} catch (NumberFormatException e) {
