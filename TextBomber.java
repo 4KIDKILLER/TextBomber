@@ -22,44 +22,44 @@ import java.util.regex.Pattern;
  */
 public class TextBomber {
 	public static void main(String[] args) throws AWTException, IOException {
-		System.out.println("å€’è®¡æ—¶5ç§’åå¼€å§‹,è¯·å°†é¼ æ ‡ç„¦ç‚¹è½¬è‡³èŠå¤©çª—å£...");
+		System.out.println("µ¹¼ÆÊ±5Ãëºó¿ªÊ¼,Çë½«Êó±ê½¹µã×ªÖÁÁÄÌì´°¿Ú...");
 		Timer timer = new Timer();
 		timer.schedule(new Task(timer), 1000, 1000);
 	}
 	/*
-	 * è¯»å–æ–‡ä»¶å†…å®¹
+	 * ¶ÁÈ¡ÎÄ¼şÄÚÈİ
 	 * 
-	 * @param string path æ–‡ä»¶åœ°å€
+	 * @param string path ÎÄ¼şµØÖ·
 	 */
 	public String readFile(String path) throws IOException {
-		// åˆ›å»ºæ–‡ä»¶
+		// ´´½¨ÎÄ¼ş
 		File file = new File(path);
 		String result = "";
 		if (!file.exists()) {
-			System.out.println("æ–‡ä»¶ä¸å­˜åœ¨!");
+			System.out.println("ÎÄ¼ş²»´æÔÚ!");
 		} else {
-            //ç¼–ç æ ¼å¼
+            //±àÂë¸ñÊ½
 			InputStreamReader isr = new InputStreamReader(new FileInputStream(new File(path)), "UTF-8");
-            //ç¼“å†²
+            //»º³å
 			BufferedReader fileRead = new BufferedReader(isr);
 			char[] arr = new char[1024];
 			int len = fileRead.read(arr);
-			// é‡æ–°èµ‹å€¼
+			// ÖØĞÂ¸³Öµ
 			try {
 				result = new String(arr, 0, len);
 			} catch (StringIndexOutOfBoundsException e) {
-				System.out.println("æ–‡ä»¶æ˜¯ç©ºçš„ï¼");
+				System.out.println("ÎÄ¼şÊÇ¿ÕµÄ£¡");
 			}
 			fileRead.close();
 		}
 		TextBomber tb = new TextBomber();
-		//å‰”é™¤å›è½¦
+		//ÌŞ³ı»Ø³µ
 		String resultData = tb.replaceBlank(result);
 		return resultData;
 	}
 	/**
-	 * å‰”é™¤å›è½¦ç¬¦å’Œæ¢è¡Œç¬¦
-	 * @param str éœ€è¦å‰”é™¤çš„å†…å®¹
+	 * ÌŞ³ı»Ø³µ·ûºÍ»»ĞĞ·û
+	 * @param str ĞèÒªÌŞ³ıµÄÄÚÈİ
 	 * @return
 	 */
 	public String replaceBlank(String str) {
@@ -73,7 +73,7 @@ public class TextBomber {
 	}
 }
 /**
- * å€’è®¡æ—¶åå¼€å§‹æ‰§è¡Œ
+ * µ¹¼ÆÊ±ºó¿ªÊ¼Ö´ĞĞ
  */
 class Task extends TimerTask {
     private Timer timer;
@@ -87,59 +87,59 @@ class Task extends TimerTask {
 	@Override
 	public void run() {
 		--timeout;
-		System.out.println("â€”â€”â€”â€”â€”â€” " + timeout);
+		System.out.println("¡ª¡ª¡ª¡ª¡ª¡ª " + timeout);
 		if(timeout==1) {
-            //å€’è®¡æ—¶ç»“æŸå¼€å§‹æ‰§è¡Œ
-			System.out.println("ç¨‹åºæ­£åœ¨æ‰§è¡Œ...");
-			// è¯»å–å†…å®¹
+            //µ¹¼ÆÊ±½áÊø¿ªÊ¼Ö´ĞĞ
+			System.out.println("³ÌĞòÕıÔÚÖ´ĞĞ...");
+			// ¶ÁÈ¡ÄÚÈİ
 			TextBomber read = new TextBomber();
 			String sentence = null;
 			try {
-				//è·å–content.txtä½ç½®
+				//»ñÈ¡content.txtÎ»ÖÃ
 				String contentPath = System.getProperty("user.dir")+"\\content.txt";
 				// String contentPath = "C:\\Users\\14508\\Desktop\\TextBomber\\content.txt";
 				sentence = read.readFile(contentPath);
 			} catch (IOException e1) {
 				e1.printStackTrace();
 			}
-			Robot robot =null;// åˆ›å»ºæœºå™¨äººå¯¹è±¡
+			Robot robot =null;// ´´½¨»úÆ÷ÈË¶ÔÏó
 			try {
 				robot = new Robot();
 			} catch (AWTException e) {
 				e.printStackTrace();
 			}
-			robot.delay(3000);// å»¶è¿Ÿä¸‰ç§’ï¼Œä¸»è¦æ˜¯ä¸ºäº†é¢„ç•™å‡ºæ‰“å¼€çª—å£çš„æ—¶é—´ï¼Œæ‹¬å·å†…çš„å•ä½ä¸ºæ¯«ç§’
+			robot.delay(3000);// ÑÓ³ÙÈıÃë£¬Ö÷ÒªÊÇÎªÁËÔ¤Áô³ö´ò¿ª´°¿ÚµÄÊ±¼ä£¬À¨ºÅÄÚµÄµ¥Î»ÎªºÁÃë
 			Clipboard clip = Toolkit.getDefaultToolkit().getSystemClipboard();
-			String[] authors = sentence.split("[,]");// å­—ç¬¦ä¸²æ ¹æ®,åˆ†å‰²
-            //æ‰§è¡Œæ¬¡æ•°
+			String[] authors = sentence.split("[,]");// ×Ö·û´®¸ù¾İ,·Ö¸î
+            //Ö´ĞĞ´ÎÊı
             int numberOf = 0;
 			try {
-				numberOf = (int) Math.abs(Integer.parseInt(authors[0]));//æ‰§è¡Œæ¬¡æ•°
+				numberOf = (int) Math.abs(Integer.parseInt(authors[0]));//Ö´ĞĞ´ÎÊı
                 if(numberOf == 0){
-                    System.out.println("æ‰§è¡Œæ¬¡æ•°å‚æ•°é”™è¯¯-10001");
-                    System.out.println("å·²å®Œæˆ");
+                    System.out.println("Ö´ĞĞ´ÎÊı²ÎÊı´íÎó-10001");
+                    System.out.println("ÒÑÍê³É");
                     this.timer.cancel();
                 }
 			} catch (NumberFormatException e) {
-				System.out.println("æ‰§è¡Œæ¬¡æ•°å‚æ•°é”™è¯¯-10002");
+				System.out.println("Ö´ĞĞ´ÎÊı²ÎÊı´íÎó-10002");
 			}
-			for (int j = 0; j < numberOf; j++) {// å¾ªç¯æ¬¡æ•°
+			for (int j = 0; j < numberOf; j++) {// Ñ­»·´ÎÊı
 				for (int i = 1; i < authors.length; i++) {
 					String sentencet = authors[i];
 					Transferable tText = new StringSelection(sentencet);
 					clip.setContents(tText, null);
-					// ä»¥ä¸‹ä¸¤è¡ŒæŒ‰ä¸‹äº†ctrl+vï¼Œå®Œæˆç²˜è´´åŠŸèƒ½
+					// ÒÔÏÂÁ½ĞĞ°´ÏÂÁËctrl+v£¬Íê³ÉÕ³Ìù¹¦ÄÜ
 					robot.keyPress(KeyEvent.VK_CONTROL);
 					robot.keyPress(KeyEvent.VK_V);
-					// é‡Šæ”¾ctrlæŒ‰é”®ï¼Œåƒctrlï¼Œé€€æ ¼é”®ï¼Œåˆ é™¤é”®è¿™æ ·çš„åŠŸèƒ½æ€§æŒ‰é”®ï¼Œåœ¨æŒ‰ä¸‹åä¸€å®šè¦é‡Šæ”¾ï¼Œä¸ç„¶ä¼šå‡ºé—®é¢˜ã€‚crtlå¦‚æœæŒ‰ä½æ²¡æœ‰é‡Šæ”¾ï¼Œåœ¨æŒ‰å…¶ä»–å­—æ¯æŒ‰é”®æ˜¯ï¼Œæ•²å‡ºæ¥çš„å›äº‹ctrlçš„å¿«æ·é”®ã€‚
+					// ÊÍ·Åctrl°´¼ü£¬Ïñctrl£¬ÍË¸ñ¼ü£¬É¾³ı¼üÕâÑùµÄ¹¦ÄÜĞÔ°´¼ü£¬ÔÚ°´ÏÂºóÒ»¶¨ÒªÊÍ·Å£¬²»È»»á³öÎÊÌâ¡£crtlÈç¹û°´×¡Ã»ÓĞÊÍ·Å£¬ÔÚ°´ÆäËû×ÖÄ¸°´¼üÊÇ£¬ÇÃ³öÀ´µÄ»ØÊÂctrlµÄ¿ì½İ¼ü¡£
 					robot.keyRelease(KeyEvent.VK_CONTROL);
-					// å»¶è¿Ÿä¸€ç§’å†å‘é€ï¼Œä¸ç„¶ä¼šä¸€æ¬¡æ€§å…¨å‘å¸ƒå‡ºå»ï¼Œå› ä¸ºç”µè„‘çš„å¤„ç†é€Ÿåº¦å¾ˆå¿«ï¼Œæ¯æ¬¡ç²˜è´´å‘é€çš„é€Ÿåº¦å‡ ä¹æ˜¯ä¸€ç¬é—´ï¼Œæ‰€ä»¥ç»™äººçš„æ„Ÿè§‰å°±æ˜¯ä¸€æ¬¡æ€§å‘é€äº†å…¨éƒ¨ã€‚è¿™ä¸ªæ—¶é—´å¯ä»¥è‡ªå·±æ”¹ï¼Œæƒ³å‡ ç§’å‘é€ä¸€æ¡éƒ½å¯ä»¥
+					// ÑÓ³ÙÒ»ÃëÔÙ·¢ËÍ£¬²»È»»áÒ»´ÎĞÔÈ«·¢²¼³öÈ¥£¬ÒòÎªµçÄÔµÄ´¦ÀíËÙ¶ÈºÜ¿ì£¬Ã¿´ÎÕ³Ìù·¢ËÍµÄËÙ¶È¼¸ºõÊÇÒ»Ë²¼ä£¬ËùÒÔ¸øÈËµÄ¸Ğ¾õ¾ÍÊÇÒ»´ÎĞÔ·¢ËÍÁËÈ«²¿¡£Õâ¸öÊ±¼ä¿ÉÒÔ×Ô¼º¸Ä£¬Ïë¼¸Ãë·¢ËÍÒ»Ìõ¶¼¿ÉÒÔ
 					robot.delay(500);
-					// å›è½¦
+					// »Ø³µ
 					robot.keyPress(KeyEvent.VK_ENTER);
 				}
 			}
-			System.out.println("æ‰§è¡Œå®Œæ¯•,å…±è®¡æ‰§è¡Œï¼š"+numberOf+"æ¬¡");
+			System.out.println("Ö´ĞĞÍê±Ï,¹²¼ÆÖ´ĞĞ£º"+numberOf+"´Î");
 			this.timer.cancel();
 		}
 	}
