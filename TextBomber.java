@@ -82,7 +82,7 @@ class Task extends TimerTask {
     public Task(Timer timer) {
         this.timer = timer;
     }
-    
+    //倒计时时间
 	int timeout = 6;
 
 	@Override
